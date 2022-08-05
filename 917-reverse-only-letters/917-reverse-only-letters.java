@@ -1,28 +1,39 @@
 class Solution {
     public String reverseOnlyLetters(String s) {
         
-      StringBuilder reversed_string=new StringBuilder();
-      int j=s.length()-1;
+     //-> Good Approach
+    
+     Stack<Character> stk=new Stack<>();
+        
+    StringBuilder stng=new StringBuilder();
+        
+     for(int i=0;i<s.length();i++)
+     {
+         if(Character.isLetter(s.charAt(i)))
+         {
+         stk.push(s.charAt(i));
+         }
+     }
         
       for(int i=0;i<s.length();i++)
-      {
-          if(Character.isLetter(s.charAt(i)))
-          {
-              while(!Character.isLetter(s.charAt(j)))
-              {
-                  j--;
-              }
-              reversed_string.append(s.charAt(j));
-              j--;
-              
-          }
-          else
-          {
-              reversed_string.append(s.charAt(i));
-          }
-      }
+     {
+         if(!Character.isLetter(s.charAt(i)))
+         {
+            stng.append(s.charAt(i));
+         }
+         else
+         {
+            stng.append(stk.pop());
+         }
+     }
+    
+     
+    
+     
         
-      return reversed_string.toString();
+    return stng.toString();
+        
+     
         
     }
 }
