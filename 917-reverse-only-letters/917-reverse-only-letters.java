@@ -1,7 +1,7 @@
 class Solution {
     public String reverseOnlyLetters(String s) {
         
-     //-> Good Approach
+     //-> Bad Approach
     
      Stack<Character> stk=new Stack<>();
         
