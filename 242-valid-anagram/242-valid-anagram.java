@@ -1,6 +1,8 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
         
+        /*
+        
         if(s.length()!=t.length())
         {
             return false;
@@ -22,6 +24,31 @@ class Solution {
         
         return true;
         
+        */
+        
+        // Alternative Solution
+        
+        if(s.length()!=t.length())
+        {
+            return false;
+        }
+        
+        int[] intarray=new int[26];
+        
+        for(int i=0;i<s.length();i++)
+        {
+            intarray[s.charAt(i)-'a']++;
+            intarray[t.charAt(i)-'a']--;
+        }
+        
+        for(int i: intarray)
+        {
+            if(i!=0)
+            {
+                return false;
+            }
+        }
+        return true;
         
         
         
