@@ -1,28 +1,36 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
         
-        //-> O(nlogn) Solution
+        //-> Better Solution is to use 3 for loops rather than sorting so time complexity O(n)
         
         if(s.length()!=t.length())
         {
             return false;
         }
         
-        //-> Sorting the arrays
-        char[] s1=s.toCharArray();
-        char[] s2=t.toCharArray();
+        char[] alpha= new char[26];
         
-        Arrays.sort(s1);
-        Arrays.sort(s2);
-        
-        for(int i=0;i<s1.length;i++)
+        for(char a: s.toCharArray())
         {
-            if(s1[i]!=s2[i])
+            alpha[a-'a']++;
+            
+        }
+        for(char a: t.toCharArray())
+        {
+            alpha[a-'a']--;
+            
+        }
+        for(int count: alpha)
+        {
+            if(count!=0)
             {
                 return false;
             }
         }
+        
         return true;
+        
+        
            
         
     }
